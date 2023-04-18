@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Floor
+  - Wall
+  - Menu
+  - Vertical
+  - Horizontal
+  - Obstacle
+  - Enemy
+  - MovingPlatform
+  - Mirror
+  - NPC
+  - DialogueBox
+  - Boss
+  - EndMirror
+  - Rayo
+  - Door
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Enemy
+  - Rooms
+  - Items
+  - PlayerAbilities
+  - Doors
+  - Checkpoints
+  - Enemy things
+  - limit
+  - NPC
+  - Platforms
+  - NPC things
+  - Slime Triggers
+  - Lighting
+  - PlayerThings
+  - EnemyAttacks
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2539025103
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackgroundDetails
+    uniqueID: 1462634491
+    locked: 0
+  - name: Room
+    uniqueID: 435620235
+    locked: 0
+  - name: Enemy
+    uniqueID: 549085075
+    locked: 0
+  - name: Player
+    uniqueID: 223347747
+    locked: 0
+  - name: items
+    uniqueID: 2822607303
+    locked: 0
+  - name: ForegroundDetails
+    uniqueID: 56095979
+    locked: 0
