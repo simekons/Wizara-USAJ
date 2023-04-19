@@ -219,12 +219,16 @@ public class UIManager : MonoBehaviour
     public void Boy(string scene)
     {
         GameManager.instance.AreYouAGirl(false);
+        if(scene.Equals("Zona1Definitiva"))
+            GameManager.instance.getTracker().gameStart();
         GameManager.instance.ChangeScene(scene);
     }
     //si eres chica
     public void Girl(string scene)
     {
         GameManager.instance.AreYouAGirl(true);
+                if(scene.Equals("Zona1Definitiva"))
+            GameManager.instance.getTracker().gameStart();
         GameManager.instance.ChangeScene(scene);
 
     }
