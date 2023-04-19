@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        tracker.end();
         tracker.flush();
     }
 
@@ -139,6 +140,8 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string Scene)
     {
+        if(Scene.Equals("Menu"))
+            tracker.gameEnd();
         if (onMenu || onDialogue) {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
             onMenu = false;
