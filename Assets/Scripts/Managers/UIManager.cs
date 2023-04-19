@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Se ha cerrado el juego.");
+        GameManager.instance.getTracker().end();
         Application.Quit();
     }
 

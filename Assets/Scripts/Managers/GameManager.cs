@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
         if (currentCase == "Menu")
         {
             Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        
             onMenu = !onMenu;
         }
 
@@ -160,6 +161,12 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = Time.timeScale == 0 ? 1 : 0;
             onDialogue = !onDialogue;
+        }
+        if(Time.timeScale<=0)
+            tracker.pause();
+        else
+        {
+            tracker.resume();
         }
     }
 
