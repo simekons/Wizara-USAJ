@@ -8,6 +8,6 @@ public class FireballDestroyEvent : GameEvent
     // Constructora de FireballDestroyEvent.
     public FireballDestroyEvent(CastHit ch) : base("FireballDestroy")
     {
-        data.Add("Hit",ch);
+        data.Add("Hit",ch.ToString());
     }
 }

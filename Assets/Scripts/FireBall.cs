@@ -33,7 +33,7 @@ public class FireBall : MonoBehaviour {
         }
         else{
             if(LayerMask.LayerToName(gameObject.layer).Equals("PlayerAbilities")){
-            if(collision.gameObject.tag.Equals("Enemy"))
+            if(LayerMask.LayerToName(collision.gameObject.layer).Equals("Enemy"))
                GameManager.instance.getTracker().sendEvent(new FireballDestroyEvent(CastHit.Enemy));
             else
                 GameManager.instance.getTracker().sendEvent(new FireballDestroyEvent(CastHit.Fail));

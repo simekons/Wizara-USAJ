@@ -5,5 +5,9 @@ using WizaraTelemetry.Events;
 
 public class ThunderboltCastEvent : GameEvent
 {
-        public ThunderboltCastEvent(string event_info) : base(event_info) { }
+        public ThunderboltCastEvent(CastHit ch) : base("ThunderHit") {
+
+        data.Add("Hit",ch.ToString());
+
+         }
 }
