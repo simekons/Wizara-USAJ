@@ -1,0 +1,3 @@
+[submodule "WizaraTelemetry"]
+	path = WizaraTelemetry
+	url = https://github.com/Amphxros/WizaraTelemetry
