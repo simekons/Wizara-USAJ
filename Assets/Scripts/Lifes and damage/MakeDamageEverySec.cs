@@ -23,7 +23,7 @@ public class MakeDamageEverySec : MonoBehaviour {
         if (triggerCollider.GetComponent<Life>() != null && !GameManager.instance.GetInvulnerablePlayer())
         {
             triggerCollider.GetComponent<Life>().LoseLife(damage);
-                GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.PlayerDamagedEvent());
+                GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.PlayerDamagedEvent("Bat"));
         }
     }
     //Se guarda other detectado por el trigger para que Damage lo pueda usar, ya que en Invoke no se puede pasar parámetros a los métodos.

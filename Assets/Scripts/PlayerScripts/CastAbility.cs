@@ -31,7 +31,7 @@ public class CastAbility : MonoBehaviour {
             InstantiateFireBall();
             fireBallOnCD = true;
             Invoke("FireBallCD", GameManager.instance.ReturnCooldown("Fireball"));
-          
+            GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.AbilityCastedEvent());
         }
     }
 

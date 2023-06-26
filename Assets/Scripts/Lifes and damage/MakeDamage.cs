@@ -24,7 +24,7 @@ public class MakeDamage : MonoBehaviour {
                 }
 
                 else if (transform.parent == null && collision.GetComponent<Life>() != null && !GameManager.instance.GetInvulnerablePlayer()) collision.GetComponent<Life>().LoseLife(damage);
-                GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.PlayerDamagedEvent());
+                GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.PlayerDamagedEvent("Rat"));
             }
         }
 
