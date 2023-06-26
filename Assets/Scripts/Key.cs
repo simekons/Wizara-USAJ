@@ -14,6 +14,5 @@ public class Key : MonoBehaviour {
         //Desbloquea la puerta y se destruye.
         door.Unlock();
         Destroy(gameObject);
-        GameManager.instance.getTracker().sendEvent(new InteractableEvent("interactable"));
     }
 }

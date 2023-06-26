@@ -7,7 +7,6 @@ public class MakeDamageEverySec : MonoBehaviour {
     public int damage;
     public float seconds;
     Collider2D triggerCollider;
-    public DamageType dType;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other == other.GetComponent<PolygonCollider2D>())
@@ -24,7 +23,7 @@ public class MakeDamageEverySec : MonoBehaviour {
         if (triggerCollider.GetComponent<Life>() != null && !GameManager.instance.GetInvulnerablePlayer())
         {
             triggerCollider.GetComponent<Life>().LoseLife(damage);
-            GameManager.instance.getTracker().sendEvent(new PlayerReceiveDamage(dType));
+                GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.PlayerDamagedEvent());
         }
     }
     //Se guarda other detectado por el trigger para que Damage lo pueda usar, ya que en Invoke no se puede pasar parámetros a los métodos.

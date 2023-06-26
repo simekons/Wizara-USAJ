@@ -38,7 +38,7 @@ public class Life : MonoBehaviour {
         if (audio != null) audio.SendAudioToPlay(); 
         if (tag == "Player"){
         GameManager.instance.Respawn();
-        GameManager.instance.getTracker().sendEvent(new PlayerDie());
+        GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.PlayerDeadEvent());
         } 
         else Destroy(gameObject);
     }

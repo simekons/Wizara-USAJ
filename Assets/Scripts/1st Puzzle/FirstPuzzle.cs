@@ -17,7 +17,7 @@ public class FirstPuzzle : MonoBehaviour
     {
         frame = transform.GetChild(0).GetComponent<PieceMovement>();
         pieces = transform.GetChild(1).GetComponentsInChildren<PieceMovement>();
-        GameManager.instance.getTracker().sendEvent(new PuzzleStartEvent()); 
+        GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.StartPuzzleEvent());
     }
 
     // Update is called once per frame
@@ -144,7 +144,7 @@ public class FirstPuzzle : MonoBehaviour
             Debug.Log("Completado!");
             GameManager.instance.SetAbilityTrue("Fireball");
             GameManager.instance.Respawn();
-            GameManager.instance.getTracker().sendEvent(new PuzzleFinishEvent());
+            GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.EndPuzzleEvent());
         }
     }
 }

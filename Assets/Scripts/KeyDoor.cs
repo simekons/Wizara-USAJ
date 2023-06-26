@@ -23,7 +23,7 @@ public class KeyDoor : MonoBehaviour {
             if (!locked)
             {
                 Destroy(gameObject);
-                GameManager.instance.getTracker().sendEvent(new InteractableEvent("interactable"));
+                GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.ItemPickedEvent());
             }
             //si está cerrada, indica al jugador mediante un cuadro de texto que necesita la llave para pasar por esa puerta.
             else

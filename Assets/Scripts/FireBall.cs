@@ -29,14 +29,12 @@ public class FireBall : MonoBehaviour {
             //Elimina las restricciones de movimiento cuando el jugador esta pegado a una pared y esta se destruye.
             GameManager.instance.ReturnPlayer().GetComponent<PlayerMovement>().RemoveRestrictions();
             if(LayerMask.LayerToName(gameObject.layer).Equals("PlayerAbilities"))
-        GameManager.instance.getTracker().sendEvent(new FireballDestroyEvent(CastHit.Obstacle));
+            GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.AbilityHitEvent("Obstacle"));
         }
         else{
             if(LayerMask.LayerToName(gameObject.layer).Equals("PlayerAbilities")){
             if(LayerMask.LayerToName(collision.gameObject.layer).Equals("Enemy"))
-               GameManager.instance.getTracker().sendEvent(new FireballDestroyEvent(CastHit.Enemy));
-            else
-                GameManager.instance.getTracker().sendEvent(new FireballDestroyEvent(CastHit.Fail));
+                    GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.AbilityHitEvent("Enemy"));
             }
 
         }

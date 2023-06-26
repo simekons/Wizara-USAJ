@@ -152,7 +152,6 @@ public class PlayerMovement : MonoBehaviour
             player.AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
             //Retraso de 0.05 para que de tiempo a levantar a jugador.
             Invoke("DoDash", 0.05f);
-            GameManager.instance.getTracker().sendEvent(new DashStartEvent("dash_start"));
         }
     }
 

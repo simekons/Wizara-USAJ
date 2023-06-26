@@ -14,13 +14,12 @@ public class RecoverLife : MonoBehaviour
     { Life life = collision.gameObject.GetComponent<Life>();
         if ( life!= null){
         life.IncreaseLife(lifeToRecover);
-        GameManager.instance.getTracker().sendEvent(new LifeDisapair(true));
+            GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.ItemPickedEvent());
         } 
         Destroy(this.gameObject);
     }
     void Destroy()
     {
-        GameManager.instance.getTracker().sendEvent(new LifeDisapair(false));
         Destroy(this.gameObject);
     }
 }
