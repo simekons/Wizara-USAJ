@@ -6,7 +6,6 @@ public class MakeDamage : MonoBehaviour {
 
     // Realiza daño al jugador al colisionar.
     public int damage;
-    public DamageType dType;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -25,7 +24,7 @@ public class MakeDamage : MonoBehaviour {
                 }
 
                 else if (transform.parent == null && collision.GetComponent<Life>() != null && !GameManager.instance.GetInvulnerablePlayer()) collision.GetComponent<Life>().LoseLife(damage);
-                GameManager.instance.getTracker().sendEvent(new PlayerReceiveDamage(dType));
+                GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.PlayerDamagedEvent());
             }
         }
 

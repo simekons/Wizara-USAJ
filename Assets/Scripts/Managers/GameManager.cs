@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-using WizaraTelemetry;
-using WizaraTelemetry.Serialization;
+using Telemetry;
+using Telemetry.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -53,30 +53,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public WizaraTelemetry.Tracker getTracker()
+    public Telemetry.Tracker getTracker()
     {
         return tracker;
     }
 
     private void setUpTracker()
     {
-        string dataPath = Application.dataPath + "/" + "data/telemetry_data";
-        JsonSerializer serializer = new JsonSerializer();
-        WizaraTelemetry.Persistence.FilePersistence filePersistence = new WizaraTelemetry.Persistence.FilePersistence(serializer, dataPath);
-        tracker = Tracker.Instance();
-        
-        tracker.setPersistence(filePersistence);
+        string dataPath = Application.dataPath + "/" + "data/";
+        tracker = Telemetry.Tracker.Instance("Wizara", Telemetry.Persistance.PersistanceType.File, Telemetry.Serialization.SerializeType.JSON, dataPath + "WizaraTelemetry");
         tracker.init();
+
     }
 
     private void OnApplicationQuit()
     {
         tracker.end();
-        tracker.flush();
     }
 
     private void Update()
     {
+        tracker.update(Time.deltaTime);
     }
 
     //obtiene el level manager
@@ -141,7 +138,7 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string Scene)
     {
         if(Scene.Equals("Menu"))
-            tracker.gameEnd();
+            tracker.endGame();
         if (onMenu || onDialogue) {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
             onMenu = false;
@@ -166,10 +163,10 @@ public class GameManager : MonoBehaviour
             onDialogue = !onDialogue;
         }
         if(Time.timeScale<=0)
-            tracker.pause();
+            tracker.AddGameEvent(new GamePausedEvent());
         else
         {
-            tracker.resume();
+            tracker.AddGameEvent(new GameResumedEvent());
         }
     }
 
