@@ -14,7 +14,7 @@ public class RecoverLife : MonoBehaviour
     { Life life = collision.gameObject.GetComponent<Life>();
         if ( life!= null){
         life.IncreaseLife(lifeToRecover);
-            GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.ItemPickedEvent());
+        GameManager.instance.getTracker().AddGameEvent(new Telemetry.Events.Wizara.ItemPickedEvent());
         } 
         Destroy(this.gameObject);
     }
