@@ -137,13 +137,16 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string Scene)
     {
-        if(Scene.Equals("Menu"))
+        if (Scene.Equals("Menu"))
+        {
             tracker.endGame();
+        }
         if (onMenu || onDialogue) {
-        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+            Time.timeScale = Time.timeScale == 0 ? 1 : 0;
             onMenu = false;
             onDialogue = false;
         }
+       
         SceneManager.LoadScene(Scene);
         audioManager.PlayMainAudio(Scene);
     }
